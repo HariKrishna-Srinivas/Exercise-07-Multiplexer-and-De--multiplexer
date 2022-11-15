@@ -46,18 +46,53 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 
  
  
-### Procedure
-/* write all the steps invloved */
+### Procedure:
+1.Start the module using module projname().
+
+2.Declare the inputs and outputs along with the select lines according to the multiplexer and demultiplexer.
+
+3.Use wire to assign intermediate outputs.
+
+4.Use and,or and not gates to get the desired output.
+
+5.End the module.
+
+6.Generate RTL realization and timing diagrams.
 
 
 
-### PROGRAM 
+### PROGRAM :
+~~~
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: M.HARIKRISHNA
+RegisterNumber:212221230059  
 */
-
+4 X 1 Multiplexer:
+module EX7(i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+not(s0c,s0);
+nor(s1c,s1);
+wire p,q,r,s,s0c,s1c;
+and(p,s0c,s1c,i0);
+and(q,s0c,s1,i1);
+and(r,s0,s1c,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule
+1 X 4 De-Multiplexer:
+module EX7_2(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c,s1c;
+nor(s0c,s0);
+nor(s1c,s1);
+and(y0,i,s0c,s1,);
+and(y1,i,s0c,s1c);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
 
 
 
@@ -65,6 +100,8 @@ RegisterNumber:
 
 ### RTL LOGIC  
 
+4 X 1 Multiplexer
+![image](https://user-images.githubusercontent.com/94882905/201819686-bdbfa452-adb1-4778-9e4f-f28956a10e3b.png)
 
 
 
@@ -74,15 +111,26 @@ RegisterNumber:
 
 ### TIMING DIGRAMS  
 
+![image](https://user-images.githubusercontent.com/94882905/201819722-aa933744-d1e4-4f21-ad58-6f0b9ba2b8eb.png)
+![image](https://user-images.githubusercontent.com/94882905/201819746-9f1d3566-7dbc-486b-8080-ac880182ea08.png)
+![image](https://user-images.githubusercontent.com/94882905/201819761-84e3f5af-a2db-4474-81cf-f26f4165c00e.png)
+![image](https://user-images.githubusercontent.com/94882905/201819784-fa777a96-ffba-44bf-b5ca-640db498d830.png)
 
 
 
 
 ### TRUTH TABLE 
+![image](https://user-images.githubusercontent.com/94882905/201819810-d0b2f66f-c7b8-405a-9d80-f1a930b61b9e.png)
+1 X 4 Multiplexer
+
+![image](https://user-images.githubusercontent.com/94882905/201819871-1932b856-9ea3-4992-b1de-f8e8f3321d56.png)
+TIMING DIGRAMS
+![image](https://user-images.githubusercontent.com/94882905/201820009-1e6cecb5-d6f2-4cfc-9393-c8cd91c04a00.png)
+
+TRUTH TABLE
+![image](https://user-images.githubusercontent.com/94882905/201820113-23a0154f-589d-4903-b28a-aab81eebdd54.png)
 
 
+### RESULTS :
+Hence 4x1 Multiplexer and 1x4 Demultiplexer is been implemented and verified using verilog programming and its output are validated.
 
-
-
-
-### RESULTS 
